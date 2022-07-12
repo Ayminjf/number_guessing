@@ -58,28 +58,29 @@ class UiNumberGuessingForm(QMainWindow):
 
             self.const += 1
 
+
         self.counter += 1
 
         self.guessnumber = int(self.uinumberguessingform.yourguess.text())
+        print(self.const)
+        print(self.randomnumber) # Prints the number guessed by the program
 
-        print(self.randomnumber)
-
-        if self.counter <= self.chances:
+        if self.counter <= self.chances: # Here we check the "chances"
 
 
-            if self.guessnumber > self.randomnumber:
+            if self.guessnumber > self.randomnumber: # If "guessnumber" was bigger than "randomnumber"
                 self.uinumberguessingform.Suggestioandresult.setText("Go Down")
 
-            elif self.guessnumber < self.randomnumber:
+            elif self.guessnumber < self.randomnumber: # If "randomnumber" was bigger than "guessnumber"
                 self.uinumberguessingform.Suggestioandresult.setText("Go Up")
 
-            elif self.guessnumber == self.randomnumber:
+            elif self.guessnumber == self.randomnumber: # If "guessnumber" was equal to "randomnumber"
                 self.uinumberguessingform.Suggestioandresult.setText("You Did it Well done !")
 
         elif self.counter > self.chances:
             self.uinumberguessingform.Suggestioandresult.setText(f"You lost, you losser ")
 
-    def reset(self):
+    def reset(self): # Resets everything
 
         self.const -= 1
         self.uinumberguessingform.chances.setText("")
